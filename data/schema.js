@@ -6,6 +6,8 @@ var schema =new buildSchema.buildSchema (`
     hello: String
     dice(left: Int,right : String) : String
     person(name: String) : Person
+    getMessage(id: ID!): Message
+    messages : [Message]
   }
   
   type Person
@@ -16,6 +18,22 @@ var schema =new buildSchema.buildSchema (`
     citylived: String
     
   }
+  
+  type Message {
+  id: ID!
+  content: String
+  author: String
+}
+
+input MessageInput {
+  content: String
+  author: String
+}
+
+type Mutation {
+  createMessage(input: MessageInput): Message
+  updateMessage(id: ID!, input: MessageInput): Message
+}
 `);
 
 module.exports = schema;
