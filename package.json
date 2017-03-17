@@ -13,6 +13,7 @@
   "author": "suraj bangale",
   "license": "MIT",
   "dependencies": {
+    "casual": "^1.5.11",
     "express": "^4.15.2",
     "express-graphql": "^0.6.3",
     "graphql": "^0.9.1"
