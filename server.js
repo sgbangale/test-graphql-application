@@ -1,3 +1,7 @@
+// server.js
+var dotenv = require('dotenv'); // for configuration
+dotenv.load();
+
 var express = require("express"),
 graphqlHttp = require("express-graphql");
 schema = require("./data/schema"),
@@ -10,12 +14,5 @@ app.use('/graphql', graphqlHttp({
   rootValue: resolver,
   graphiql: true,
 }));
-app.listen(8080);
-console.log('Running a GraphQL API server at :8080/graphql');
-
-
-
-
-
-
-
+app.listen(process.env.api_port);
+console.log('Running server @'+process.env.api_port);

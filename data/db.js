@@ -2,7 +2,7 @@ var sql = require("sequelize");
 
 var db = new sql.Sequelize('blog', null, null, {
   dialect: 'sqlite',
-  storage: './blog.sqlite'
+  storage: process.env.sqlite_config
 });
 
 
